@@ -1,5 +1,5 @@
 <template>
-  <div
+  <header
     class="app-header w-100 pl-5 pr-5 d-flex justify-content-between align-items-center orange"
   >
     <div class="d-flex align-items-center">
@@ -13,7 +13,7 @@
       </v-icon>
       <span class="btn-exit__span black--text font-size-17">Sair</span>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>

@@ -8,7 +8,7 @@ const state = {
         'Polvo fresco com legumes refogados (Cenoura, cebola, pimentão, grão de bico e pepino)...',
       category: 'fullDish',
       value: 14990,
-      path: '@/assets/images/products/sala_de_polvo.svg',
+      path: '@/assets/images/products/salada_de_polvo.svg',
     },
     {
       id: '0393f3f2-1f1d-4c51-9ba4-14c57902d568',
@@ -101,7 +101,7 @@ const state = {
         'Polvo fresco com legumes refogados (Cenoura, cebola, pimentão, grão de bico e pepino)...',
       category: 'fullDish',
       value: 14990,
-      path: '@/assets/images/products/sala_de_polvo.svg',
+      path: '@/assets/images/products/salada_de_polvo.svg',
     },
     {
       id: '0393f3f2-1f1d-4c51-9ba4-14c57902d568',

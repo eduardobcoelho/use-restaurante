@@ -7,6 +7,7 @@ Vue.mixin({
       let valueString = String(value);
       valueString = valueString.slice(0, -2);
       return `R$ ${valueString},00`;
+      // value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }),
     },
   },
 });

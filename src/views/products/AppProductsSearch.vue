@@ -31,8 +31,11 @@
             v-on="on"
             class="order-by__button grayLight d-flex align-items-center"
           >
-            <span class="font-size-17 blackLight--text ml-3">
-              Ordernar por
+            <span
+              class="font-size-17 blackLight--text ml-3"
+              :class="[orderBy ? 'orange--text' : '']"
+            >
+              {{ !orderBy ? 'Ordernar por' : ordersByMap[orderBy] }}
             </span>
           </div>
         </template>
@@ -79,6 +82,10 @@
       return {
         setFreeSearch,
         setOrderBy,
+        ordersByMap: {
+          1: 'Maior preço',
+          2: 'Menor preço',
+        },
         freeSearch: computed(() => store.getters.freeSearch),
         orderBy: computed(() => store.getters.orderBy),
         ordersBy: computed(() => store.getters.ordersBy),

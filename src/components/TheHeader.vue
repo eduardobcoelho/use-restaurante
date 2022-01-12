@@ -25,6 +25,9 @@
 <style lang="scss">
   .app-header {
     min-height: 117px;
+    position: relative;
+    top: 0px;
+    left: 0px;
   }
 
   .btn-exit {

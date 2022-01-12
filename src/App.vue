@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <TheHeader />
-    <v-main>
+    <v-main class="pa-4 white">
       <router-view />
     </v-main>
     <TheFooter />
@@ -9,18 +9,18 @@
 </template>
 
 <script>
-  import TheHeader from '@/components/TheHeader.vue';
-  import TheFooter from '@/components/TheFooter.vue';
+import TheHeader from "@/components/TheHeader.vue";
+import TheFooter from "@/components/TheFooter.vue";
 
-  export default {
-    name: 'App',
+export default {
+  name: "App",
 
-    data: () => ({
-      //
-    }),
-    components: {
-      TheHeader,
-      TheFooter,
-    },
-  };
+  data: () => ({
+    //
+  }),
+  components: {
+    TheHeader,
+    TheFooter,
+  },
+};
 </script>

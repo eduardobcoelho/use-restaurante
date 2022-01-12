@@ -20,6 +20,7 @@
         hide-details
         dense
         class="category-free-search"
+        @input="setFreeSearch"
       ></v-text-field>
     </v-col>
     <v-col cols="12" md="3" class="d-flex justify-content-end">
@@ -42,7 +43,7 @@
             @click="setOrderBy(item.value, item.value === orderBy)"
           >
             <span
-              class="order-by__option blackLight--text font-size-17"
+              class="order-by__option font-size-17"
               :class="[
                 orderBy === item.value ? 'order-by__option--selected' : '',
               ]"
@@ -62,15 +63,26 @@
   export default {
     name: 'AppProductsSearch',
     setup() {
+      let debounce = null;
+      const setFreeSearch = (val) => {
+        clearTimeout(debounce);
+        debounce = setTimeout(() => {
+          console.log(val);
+          store.commit('setFreeSearch', val);
+          store.commit('filterProductsByFreeSearch');
+        }, 400);
+      };
       const setOrderBy = (value, isEqual) => {
         store.commit('setOrderBy', !isEqual ? value : null);
         store.commit('filterProductsByCategory');
       };
 
       return {
+        setFreeSearch,
+        setOrderBy,
+        freeSearch: computed(() => store.getters.freeSearch),
         orderBy: computed(() => store.getters.orderBy),
         ordersBy: computed(() => store.getters.ordersBy),
-        setOrderBy,
       };
     },
   };
@@ -90,6 +102,8 @@
     }
 
     &__option {
+      color: #262626;
+
       &--selected {
         color: #f29c46;
       }

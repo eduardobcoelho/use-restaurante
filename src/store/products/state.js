@@ -85,6 +85,7 @@ const state = {
       slug: 'promotions',
     },
   ],
+  freeSearch: '',
   orderBy: null,
   ordersBy: [
     { value: 1, name: 'Maior preço' },

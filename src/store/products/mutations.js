@@ -9,6 +9,16 @@ const mutations = {
           (product) => product.category === state.category
         );
   },
+  setFreeSearch(state, payload) {
+    state.freeSearch = payload;
+  },
+  filterProductsByFreeSearch(state) {
+    state.products = !state.freeSearch
+      ? state.allProducts
+      : state.products.filter((product) =>
+          product.name.toLowerCase().includes(state.freeSearch.toLowerCase())
+        );
+  },
   setOrderBy(state, payload) {
     state.orderBy = payload;
   },

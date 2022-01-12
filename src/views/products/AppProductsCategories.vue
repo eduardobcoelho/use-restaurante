@@ -18,7 +18,7 @@
           filterProducts(category.slug, category.slug === categorySelected)
         "
       >
-        <span class="font-size-17 blackLight--text">{{ category.name }}</span>
+        <span class="font-size-17">{{ category.name }}</span>
       </div>
     </v-col>
   </v-row>
@@ -52,6 +52,7 @@
       cursor: pointer;
       border: 1px solid #595555;
       border-radius: 12px;
+      color: #262626;
       transition: all 0.1s ease-in;
 
       &--selected {

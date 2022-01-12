@@ -7,6 +7,7 @@ import vuetify from './plugins/vuetify';
 import VueCompositionAPI from '@vue/composition-api';
 
 import '@/assets/css/main.css';
+import '@/mixin';
 
 Vue.config.productionTip = false;
 

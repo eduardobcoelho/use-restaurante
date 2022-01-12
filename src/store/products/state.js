@@ -85,6 +85,11 @@ const state = {
       slug: 'promotions',
     },
   ],
+  orderBy: null,
+  ordersBy: [
+    { value: 1, name: 'Maior preço' },
+    { value: 2, name: 'Menor preço' },
+  ],
 };
 
 export default state;

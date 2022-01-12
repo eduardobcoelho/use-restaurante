@@ -18,7 +18,7 @@
           filterProducts(category.slug, category.slug === categorySelected)
         "
       >
-        <span class="font-size-17">{{ category.name }}</span>
+        <span class="font-size-17 blackLight--text">{{ category.name }}</span>
       </div>
     </v-col>
   </v-row>
@@ -33,7 +33,7 @@
     setup() {
       const filterProducts = (slug, isEqual) => {
         store.commit('setCategory', !isEqual ? slug : null);
-        store.commit('filterProducts', slug);
+        store.commit('filterProductsByCategory');
       };
 
       return {
@@ -47,11 +47,8 @@
 
 <style lang="scss">
   .app-categories {
-    max-width: 1200px;
-
     &__category {
       width: 100%;
-      max-width: 300px;
       cursor: pointer;
       border: 1px solid #595555;
       border-radius: 12px;

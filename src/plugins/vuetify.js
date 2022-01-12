@@ -13,6 +13,7 @@ export default new Vuetify({
         grayLight: '#efefef',
         grayDark: '#595555',
         black: '#000000',
+        blackLight: '#262626',
         orange: '#f29c46',
         orangeDark: '#c14d19',
         green: '#72bc54',

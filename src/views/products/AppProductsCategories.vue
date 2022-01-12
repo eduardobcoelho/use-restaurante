@@ -1,6 +1,12 @@
 <template>
   <v-row class="app-categories ma-0">
-    <v-col v-for="category in categories" :key="category.id" cols="12" md="3">
+    <v-col
+      v-for="category in categories"
+      :key="category.id"
+      cols="12"
+      md="3"
+      class="d-flex justify-content-center"
+    >
       <div
         class="app-categories__category pt-2 pr-3 pb-2 pl-3 d-flex justify-content-center"
         :class="[
@@ -44,6 +50,8 @@
     max-width: 1200px;
 
     &__category {
+      width: 100%;
+      max-width: 300px;
       cursor: pointer;
       border: 1px solid #595555;
       border-radius: 12px;

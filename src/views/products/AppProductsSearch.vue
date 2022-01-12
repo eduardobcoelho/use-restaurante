@@ -67,14 +67,13 @@
       const setFreeSearch = (val) => {
         clearTimeout(debounce);
         debounce = setTimeout(() => {
-          console.log(val);
           store.commit('setFreeSearch', val);
-          store.commit('filterProductsByFreeSearch');
-        }, 400);
+          store.commit('filterProducts');
+        }, 300);
       };
       const setOrderBy = (value, isEqual) => {
         store.commit('setOrderBy', !isEqual ? value : null);
-        store.commit('filterProductsByCategory');
+        store.commit('filterProducts');
       };
 
       return {

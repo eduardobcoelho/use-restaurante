@@ -33,7 +33,7 @@
     setup() {
       const filterProducts = (slug, isEqual) => {
         store.commit('setCategory', !isEqual ? slug : null);
-        store.commit('filterProductsByCategory');
+        store.commit('filterProducts');
       };
 
       return {

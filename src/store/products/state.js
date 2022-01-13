@@ -1,9 +1,23 @@
 const state = {
+  capacities: [
+    {
+      id: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
+      description: 'Serve 1 pessoa',
+    },
+    {
+      id: '5f249690-bec4-47a7-9cf9-58ec68f7c0b4',
+      description: 'Serve 2 pessoas',
+    },
+    {
+      id: '0ceaa911-dc93-48b8-87cc-6e9dc6e414e0',
+      description: 'Família - até 4 pessoas',
+    },
+  ],
   allProducts: [
     {
       id: '1fe432a9-7c15-47cf-a2dd-4ca532db9e80',
       name: 'Salada de polvo',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details:
         'Polvo fresco com legumes refogados (Cenoura, cebola, pimentão, grão de bico e pepino)...',
       category: 'fullDish',
@@ -13,7 +27,7 @@ const state = {
     {
       id: '0393f3f2-1f1d-4c51-9ba4-14c57902d568',
       name: 'Carne de Sol com Fritas',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: 'Acompanha arroz, feijão trupeiro e vinagrete.',
       category: 'fullDish',
       value: 12000,
@@ -22,7 +36,7 @@ const state = {
     {
       id: '103675dd-8a8c-46da-b82f-23903f5763b7',
       name: 'Filé de Salmão ao molho pesto',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: 'Acompanha arroz e salada de espinafre.',
       category: 'fullDish',
       value: 11000,
@@ -31,7 +45,7 @@ const state = {
     {
       id: 'ef0c77b3-9146-408b-96d3-928d867b64f5',
       name: 'Coca-cola 350ml',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: 'Bebida gaseificada',
       category: 'drink',
       value: 650,
@@ -40,7 +54,7 @@ const state = {
     {
       id: 'ef05b6f8-5e41-4133-8f2c-c61dbfdf53cc',
       name: 'Monster mango loco',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: 'Bebida gaseificada',
       category: 'drink',
       value: 850,
@@ -49,7 +63,7 @@ const state = {
     {
       id: '319ced2c-7273-4f6e-b544-bcc2f0d90970',
       name: 'Monster absolutely zero',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: 'Bebida gaseificada',
       category: 'drink',
       value: 860,
@@ -58,7 +72,7 @@ const state = {
     {
       id: 'd417666a-e2e4-430c-a921-8edb1960fa8f',
       name: 'Torta alemã',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: '',
       category: 'dessert',
       value: 1500,
@@ -67,7 +81,7 @@ const state = {
     {
       id: '38ef5f96-1112-4f60-9326-0dae941e4848',
       name: 'Torta de limão',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: '',
       category: 'dessert',
       value: 1250,
@@ -76,7 +90,7 @@ const state = {
     {
       id: '858c374d-7631-4084-86f9-8148054f46a7',
       name: 'Brownie',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: '',
       category: 'dessert',
       value: 500,
@@ -85,7 +99,7 @@ const state = {
     {
       id: '498bc7e5-ec8c-4be5-8d05-17e4017f461e',
       name: 'Combo Torta de Limão + Suco',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: '',
       category: 'promotion',
       value: 1500,
@@ -96,7 +110,7 @@ const state = {
     {
       id: '1fe432a9-7c15-47cf-a2dd-4ca532db9e80',
       name: 'Salada de polvo',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details:
         'Polvo fresco com legumes refogados (Cenoura, cebola, pimentão, grão de bico e pepino)...',
       category: 'fullDish',
@@ -106,7 +120,7 @@ const state = {
     {
       id: '0393f3f2-1f1d-4c51-9ba4-14c57902d568',
       name: 'Carne de Sol com Fritas',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: 'Acompanha arroz, feijão trupeiro e vinagrete.',
       category: 'fullDish',
       value: 12000,
@@ -115,7 +129,7 @@ const state = {
     {
       id: '103675dd-8a8c-46da-b82f-23903f5763b7',
       name: 'Filé de Salmão ao molho pesto',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: 'Acompanha arroz e salada de espinafre.',
       category: 'fullDish',
       value: 11000,
@@ -124,7 +138,7 @@ const state = {
     {
       id: 'ef0c77b3-9146-408b-96d3-928d867b64f5',
       name: 'Coca-cola 350ml',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: 'Bebida gaseificada',
       category: 'drink',
       value: 650,
@@ -133,7 +147,7 @@ const state = {
     {
       id: 'ef05b6f8-5e41-4133-8f2c-c61dbfdf53cc',
       name: 'Monster mango loco',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: 'Bebida gaseificada',
       category: 'drink',
       value: 850,
@@ -142,7 +156,7 @@ const state = {
     {
       id: '319ced2c-7273-4f6e-b544-bcc2f0d90970',
       name: 'Monster absolutely zero',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: 'Bebida gaseificada',
       category: 'drink',
       value: 860,
@@ -151,7 +165,7 @@ const state = {
     {
       id: 'd417666a-e2e4-430c-a921-8edb1960fa8f',
       name: 'Torta alemã',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: '',
       category: 'dessert',
       value: 1500,
@@ -160,7 +174,7 @@ const state = {
     {
       id: '38ef5f96-1112-4f60-9326-0dae941e4848',
       name: 'Torta de limão',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: '',
       category: 'dessert',
       value: 1250,
@@ -169,7 +183,7 @@ const state = {
     {
       id: '858c374d-7631-4084-86f9-8148054f46a7',
       name: 'Brownie',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: '',
       category: 'dessert',
       value: 500,
@@ -178,7 +192,7 @@ const state = {
     {
       id: '498bc7e5-ec8c-4be5-8d05-17e4017f461e',
       name: 'Combo Torta de Limão + Suco',
-      capacity: '1-4',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
       details: '',
       category: 'promotion',
       value: 1500,

@@ -2,7 +2,7 @@
   <header
     class="app-header w-100 pl-5 pr-5 d-flex justify-content-between align-items-center orange"
   >
-    <div class="d-flex align-items-center">
+    <div @click="toProducts" class="d-flex align-items-center">
       <img src="@/assets/images/logo.svg" min-width="80" min-height="68" />
       <span class="ml-6 font-size-20">Olá, Eduardo!</span>
     </div>

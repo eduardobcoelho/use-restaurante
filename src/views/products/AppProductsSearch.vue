@@ -19,7 +19,7 @@
         outlined
         hide-details
         dense
-        class="category-free-search"
+        class="border-radius-12"
         @input="setFreeSearch"
       ></v-text-field>
     </v-col>
@@ -95,10 +95,6 @@
 </script>
 
 <style lang="scss">
-  .category-free-search {
-    border-radius: 12px !important;
-  }
-
   .order-by {
     &__button {
       width: 100%;

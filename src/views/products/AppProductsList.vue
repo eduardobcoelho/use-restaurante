@@ -25,7 +25,7 @@
         @click="$router.push({ name: 'NewProduct' })"
         dark
         color="orangeDark"
-        style="border-radius: 12px"
+        class="border-radius-12"
       >
         <span>Cadastrar produto</span>
       </v-btn>

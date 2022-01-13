@@ -24,7 +24,7 @@
         max-width="336px"
         dark
         color="orangeDark"
-        style="border-radius: 12px"
+        class="border-radius-12"
         @click="$router.push({ name: 'NewProduct' })"
       >
         <span>Cadastrar produtos</span>

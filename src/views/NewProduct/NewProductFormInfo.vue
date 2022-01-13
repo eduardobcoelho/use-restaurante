@@ -4,7 +4,7 @@
     @submit.prevent="submitForm"
     ref="productFormInfo"
     lazy-validation
-    class="new-product-form-info w-100"
+    class="w-100"
   >
     <v-row class="ma-0 w-100">
       <v-col cols="12">
@@ -12,7 +12,7 @@
           v-model="model.name"
           color="orange"
           label="Nome do produto"
-          class="new-product-form-info__input"
+          class="border-radius-12"
           outlined
           hide-details
           :rules="[requiredField]"
@@ -23,7 +23,7 @@
           v-model="model.details"
           color="orange"
           label="Descrição"
-          class="new-product-form-info__input"
+          class="border-radius-12"
           outlined
           hide-details
           :rules="[requiredField, max200]"
@@ -42,7 +42,7 @@
           type="number"
           color="orange"
           label="Valor (R$)"
-          class="new-product-form-info__input"
+          class="border-radius-12"
           outlined
           hide-details
           :rules="[requiredField]"
@@ -57,7 +57,7 @@
           item-value="slug"
           label="Categoria"
           outlined
-          class="new-product-form-info__input"
+          class="border-radius-12"
           hide-details
           :rules="[requiredField]"
         ></v-select>
@@ -131,11 +131,3 @@
     },
   };
 </script>
-
-<style scoped lang="scss">
-  .new-product-form-info {
-    &__input {
-      border-radius: 12px;
-    }
-  }
-</style>

@@ -1,7 +1,7 @@
 <template>
   <div
     :style="`min-height: ${minHeight}px;`"
-    class="uploader w-100 pa-4 d-flex justify-content-center align-items-center"
+    class="uploader border-radius-12 w-100 pa-4 d-flex justify-content-center align-items-center"
   >
     <div
       v-if="isCover"
@@ -44,7 +44,6 @@
   .uploader {
     background-color: #efefef;
     border: 1px solid #c14d19;
-    border-radius: 12px;
     cursor: pointer;
     position: relative;
     transition: all 0.1s ease-in-out;

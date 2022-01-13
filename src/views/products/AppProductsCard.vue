@@ -18,7 +18,7 @@
       class="product-card__infos mt-2 mt-md-0 pa-0 pr-3 pl-3"
     >
       <div class="font-size-20 orangeDark--text">{{ name }}</div>
-      <div class="font-size-17 orange--text">{{ capacity }} pessoa(s)</div>
+      <div class="font-size-17 orange--text">{{ getCapacity() }}</div>
       <div class="font-size-17 grayDark--text">
         {{ !details ? '-' : details }}
       </div>
@@ -46,6 +46,8 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex';
+
   export default {
     name: 'AppProductsCard',
     props: {
@@ -61,7 +63,7 @@
         type: String,
         required: true,
       },
-      capacity: {
+      capacityId: {
         type: String,
         required: true,
       },
@@ -80,6 +82,15 @@
         { icon: 'mdi-delete', name: 'Excluir' },
       ],
     }),
+    computed: {
+      ...mapGetters(['capacities']),
+    },
+    methods: {
+      getCapacity() {
+        return this.capacities.filter((item) => item.id === this.capacityId)[0]
+          .description;
+      },
+    },
   };
 </script>
 

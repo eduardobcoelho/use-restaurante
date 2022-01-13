@@ -10,7 +10,7 @@
         :id="product.id"
         :path="product.path"
         :name="product.name"
-        :capacity="product.capacity"
+        :capacityId="product.capacity"
         :details="product.details"
         :value="currencyFormat(product.value)"
       ></AppProductsCard>

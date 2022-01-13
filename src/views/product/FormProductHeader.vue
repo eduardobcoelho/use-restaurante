@@ -16,7 +16,7 @@
 
 <script>
   export default {
-    name: 'NewProductHeader',
+    name: 'FormProductHeader',
     props: {
       step: {
         type: Number,
@@ -25,9 +25,3 @@
     },
   };
 </script>
-
-<style lang="scss">
-  .new-product-header {
-    max-width: 586px;
-  }
-</style>

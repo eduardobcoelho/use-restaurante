@@ -2,7 +2,7 @@
   <v-form
     v-model="valid"
     @submit.prevent="submitForm"
-    ref="productFormInfo"
+    ref="formProductInfo"
     lazy-validation
     class="w-100"
   >
@@ -99,9 +99,9 @@
   import store from '@/store';
 
   export default {
-    name: 'NewProductFormInfo',
+    name: 'FormProductInfo',
     setup(_, { emit }) {
-      const productFormInfo = ref(null);
+      const formProductInfo = ref(null);
       const valid = ref(true);
       const model = ref({
         name: '',
@@ -115,11 +115,11 @@
         v.length <= 200 || 'Não pode ter mais de 200 caracteres';
 
       const submitForm = () => {
-        if (productFormInfo.value.validate()) emit('setStep', 2);
+        if (formProductInfo.value.validate()) emit('setStep', 2);
       };
 
       return {
-        productFormInfo,
+        formProductInfo,
         valid,
         model,
         requiredField,

@@ -1,8 +1,8 @@
 <template>
   <div class="w-100 d-flex justify-content-center">
-    <v-row class="new-product ma-0">
+    <v-row class="form-product ma-0">
       <v-col cols="12" md="6">
-        <NewProductHeader :step="step"></NewProductHeader>
+        <FormProductHeader :step="step"></FormProductHeader>
       </v-col>
       <v-col cols="12" class="d-flex justify-content-center pa-0">
         <keep-alive>
@@ -15,16 +15,16 @@
 
 <script>
   import { ref } from '@vue/composition-api';
-  import NewProductHeader from './NewProductHeader';
-  import NewProductFormInfo from './NewProductFormInfo';
-  import NewProductFormPictures from './NewProductFormPictures';
+  import FormProductHeader from './FormProductHeader';
+  import FormProductInfo from './FormProductInfo';
+  import FormProductPictures from './FormProductPictures';
 
   export default {
-    name: 'NewProduct',
+    name: 'FormProduct',
     components: {
-      NewProductHeader,
-      NewProductFormInfo,
-      NewProductFormPictures,
+      FormProductHeader,
+      FormProductInfo,
+      FormProductPictures,
     },
     setup() {
       const step = ref(1);
@@ -33,8 +33,8 @@
         step,
         setStep,
         forms: {
-          1: 'NewProductFormInfo',
-          2: 'NewProductFormPictures',
+          1: 'FormProductInfo',
+          2: 'FormProductPictures',
         },
       };
     },
@@ -42,7 +42,7 @@
 </script>
 
 <style lang="scss">
-  .new-product {
+  .form-product {
     max-width: 639px;
   }
 </style>

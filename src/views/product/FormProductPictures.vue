@@ -6,16 +6,16 @@
       >
     </v-col>
     <v-col cols="12">
-      <NewProductUploaderPicture
+      <FormProductPicturesUploader
         :minHeight="296"
         isCover
-      ></NewProductUploaderPicture>
+      ></FormProductPicturesUploader>
     </v-col>
     <v-col cols="12" md="6">
-      <NewProductUploaderPicture></NewProductUploaderPicture
+      <FormProductPicturesUploader></FormProductPicturesUploader
     ></v-col>
     <v-col cols="12" md="6">
-      <NewProductUploaderPicture></NewProductUploaderPicture>
+      <FormProductPicturesUploader></FormProductPicturesUploader>
     </v-col>
     <v-col cols="12" class="text-end">
       <v-btn min-width="224px" color="orangeDark">
@@ -26,12 +26,12 @@
 </template>
 
 <script>
-  import NewProductUploaderPicture from './NewProductUploaderPicture';
+  import FormProductPicturesUploader from './FormProductPicturesUploader';
 
   export default {
-    name: 'NewProductFormPictures',
+    name: 'FormProductPictures',
     components: {
-      NewProductUploaderPicture,
+      FormProductPicturesUploader,
     },
   };
 </script>

@@ -35,8 +35,11 @@
         class="product-card__actions--action ml-3 ml-md-0"
         v-for="(action, i) in actions"
         :key="i"
+        @click="doAction(action)"
       >
-        <v-icon color="orange" size="20">{{ action.icon }}</v-icon>
+        <v-btn icon color="orange">
+          <v-icon size="20"> {{ action.icon }} </v-icon>
+        </v-btn>
         <span class="font-size-14 grayDark--text">
           {{ action.name }}
         </span>
@@ -78,8 +81,8 @@
     },
     data: () => ({
       actions: [
-        { icon: 'mdi-pencil', name: 'Editar' },
-        { icon: 'mdi-delete', name: 'Excluir' },
+        { icon: 'mdi-pencil', name: 'Editar', action: 'update' },
+        { icon: 'mdi-delete', name: 'Excluir', action: 'remove' },
       ],
     }),
     computed: {
@@ -89,6 +92,11 @@
       getCapacity() {
         return this.capacities.filter((item) => item.id === this.capacityId)[0]
           .description;
+      },
+      doAction(item) {
+        item.action === 'update'
+          ? this.$router.push(`products/update-product/${this.id}`)
+          : (this.removeDialog = true);
       },
     },
   };
@@ -129,6 +137,12 @@
       &--action {
         cursor: pointer;
         @include displayFlex(column, center, center);
+
+        &:hover {
+          span {
+            color: #f29c46 !important;
+          }
+        }
       }
     }
   }

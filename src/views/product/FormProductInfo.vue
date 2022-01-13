@@ -118,7 +118,10 @@
         v.length <= 200 || 'Não pode ter mais de 200 caracteres';
       // form methods
       const submitForm = () => {
-        if (formProductInfo.value.validate()) emit('setStep', 2);
+        if (formProductInfo.value.validate()) {
+          store.commit('setCurrentProduct', model);
+          emit('setStep', 2);
+        }
       };
       // update validations
       const products = store.getters.products;
@@ -129,9 +132,7 @@
       };
       const fillModel = () => {
         const product = getProduct();
-        for (const key in model) {
-          model[key] = product[key];
-        }
+        for (const key in model) model[key] = product[key];
       };
       // Created
       if ('id' in router.currentRoute.params) fillModel();

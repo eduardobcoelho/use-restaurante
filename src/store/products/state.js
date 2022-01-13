@@ -1,4 +1,5 @@
 const state = {
+  currentProduct: null,
   capacities: [
     {
       id: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',

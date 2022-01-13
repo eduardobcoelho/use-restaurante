@@ -18,7 +18,7 @@
       <FormProductPicturesUploader></FormProductPicturesUploader>
     </v-col>
     <v-col cols="12" class="text-end">
-      <v-btn min-width="224px" color="orangeDark">
+      <v-btn @click="submit" min-width="224px" color="orangeDark">
         <span class="white--text">Cadastrar produto</span>
       </v-btn>
     </v-col>
@@ -26,12 +26,26 @@
 </template>
 
 <script>
+  import router from '@/router';
+  import store from '@/store';
   import FormProductPicturesUploader from './FormProductPicturesUploader';
 
   export default {
     name: 'FormProductPictures',
     components: {
       FormProductPicturesUploader,
+    },
+    setup() {
+      const submit = () => {
+        'id' in router.currentRoute.params
+          ? store.dispatch('updateProduct', router.currentRoute.params.id)
+          : store.dispatch('saveProduct');
+        router.push({ name: 'Products' });
+      };
+
+      return {
+        submit,
+      };
     },
   };
 </script>

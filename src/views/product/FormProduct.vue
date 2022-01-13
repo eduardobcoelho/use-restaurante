@@ -18,6 +18,7 @@
 
 <script>
   import { ref } from '@vue/composition-api';
+  import store from '@/store';
   import FormProductHeader from './FormProductHeader';
   import FormProductInfo from './FormProductInfo';
   import FormProductPictures from './FormProductPictures';
@@ -38,6 +39,7 @@
     setup() {
       const step = ref(1);
       const setStep = (val) => (step.value = val);
+      store.commit('setCurrentProduct', null);
       return {
         step,
         setStep,

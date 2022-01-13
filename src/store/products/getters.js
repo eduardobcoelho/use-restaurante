@@ -1,4 +1,5 @@
 const getters = {
+  currentProduct: (state) => state.currentProduct,
   capacities: (state) => state.capacities,
   category: (state) => state.category,
   categories: (state) => state.categories,

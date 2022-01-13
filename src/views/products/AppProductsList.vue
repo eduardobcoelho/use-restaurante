@@ -21,7 +21,12 @@
       style="max-width: 640px"
       class="pr-0 pl-0 d-flex justify-content-end"
     >
-      <v-btn dark color="orangeDark" style="border-radius: 12px">
+      <v-btn
+        @click="$router.push({ name: 'NewProduct' })"
+        dark
+        color="orangeDark"
+        style="border-radius: 12px"
+      >
         <span>Cadastrar produto</span>
       </v-btn>
     </v-col>

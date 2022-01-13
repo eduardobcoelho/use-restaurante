@@ -2,7 +2,10 @@
   <div class="w-100 d-flex justify-content-center">
     <v-row class="form-product ma-0">
       <v-col cols="12" md="6">
-        <FormProductHeader :step="step"></FormProductHeader>
+        <FormProductHeader
+          :title="!update ? 'Cadastrar novo produto' : 'Editar produto'"
+          :step="step"
+        ></FormProductHeader>
       </v-col>
       <v-col cols="12" class="d-flex justify-content-center pa-0">
         <keep-alive>
@@ -21,6 +24,12 @@
 
   export default {
     name: 'FormProduct',
+    props: {
+      update: {
+        type: Boolean,
+        default: false,
+      },
+    },
     components: {
       FormProductHeader,
       FormProductInfo,

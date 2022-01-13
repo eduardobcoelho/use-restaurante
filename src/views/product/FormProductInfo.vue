@@ -95,28 +95,46 @@
 </template>
 
 <script>
-  import { ref, computed } from '@vue/composition-api';
+  import { ref, reactive, computed } from '@vue/composition-api';
   import store from '@/store';
+  import router from '@/router';
 
   export default {
     name: 'FormProductInfo',
     setup(_, { emit }) {
+      // variables & model
       const formProductInfo = ref(null);
       const valid = ref(true);
-      const model = ref({
+      const model = reactive({
         name: '',
         capacity: '',
         details: '',
         category: '',
-        value: null,
+        value: '',
       });
+      // form validations
       const requiredField = (v) => !!v || 'Campo obrigatório';
       const max200 = (v) =>
         v.length <= 200 || 'Não pode ter mais de 200 caracteres';
-
+      // form methods
       const submitForm = () => {
         if (formProductInfo.value.validate()) emit('setStep', 2);
       };
+      // update validations
+      const products = store.getters.products;
+      const getProduct = () => {
+        return products.filter(
+          (item) => item.id === router.currentRoute.params.id,
+        )[0];
+      };
+      const fillModel = () => {
+        const product = getProduct();
+        for (const key in model) {
+          model[key] = product[key];
+        }
+      };
+      // Created
+      if ('id' in router.currentRoute.params) fillModel();
 
       return {
         formProductInfo,

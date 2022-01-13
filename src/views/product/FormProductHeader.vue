@@ -6,9 +6,7 @@
         title="Bolsa de compras"
         max-width="23px"
       />
-      <span class="font-size-20 blackLight--text ml-3"
-        >Cadastrar novo produto</span
-      >
+      <span class="font-size-20 blackLight--text ml-3">{{ title }}</span>
     </div>
     <span class="font-size-17 grayDark--text mt-2">Etapa {{ step }} de 2</span>
   </div>
@@ -20,6 +18,10 @@
     props: {
       step: {
         type: Number,
+        required: true,
+      },
+      title: {
+        type: String,
         required: true,
       },
     },

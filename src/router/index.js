@@ -14,6 +14,11 @@ const routes = [
     name: 'NewProduct',
     component: () => import('@/views/product/FormProduct.vue'),
   },
+  {
+    path: '/products/update-product/:id',
+    name: 'UpdateProduct',
+    component: () => import('@/views/product/UpdateProduct.vue'),
+  },
 ];
 
 const router = new VueRouter({

@@ -14,11 +14,17 @@
 
   export default {
     name: 'App',
-
     data: () => ({}),
     components: {
       TheHeader,
       TheFooter,
+    },
+    created() {
+      this.$store.commit('setUser', {
+        name: 'Luiz Eduardo',
+        username: 'Edu',
+        email: 'luiz.eduardo@usemobile.zyx',
+      });
     },
   };
 </script>

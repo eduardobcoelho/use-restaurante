@@ -1,7 +1,7 @@
 <template>
   <v-row class="ma-0">
     <v-col cols="12" md="3" class="d-flex align-items-center">
-      <v-icon size="25px" color="black"> mdi-package-variant-closed </v-icon>
+      <v-img src="@/assets/images/products/shopping_bag.svg" max-width="23px" />
       <span class="font-size-20 blackLight--text ml-2">
         Produtos cadastrados
       </span>

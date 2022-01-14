@@ -11,21 +11,21 @@
         :image="productImages.path"
         :minHeight="296"
         isCover
-        @setImage="(val) => (productImages.path = val)"
+        @setImage="setPath"
       ></FormProductPicturesUploader>
     </v-col>
     <v-col cols="12" md="6">
       <FormProductPicturesUploader
         reference="uploader2"
         :image="productImages.images[0]"
-        @setImage="(val) => (productImages.images[0] = val)"
+        @setImage="setFirstImage"
       ></FormProductPicturesUploader
     ></v-col>
     <v-col cols="12" md="6">
       <FormProductPicturesUploader
         reference="uploader3"
         :image="productImages.images[1]"
-        @setImage="(val) => (productImages.images[1] = val)"
+        @setImage="setSecondImage"
       ></FormProductPicturesUploader>
     </v-col>
     <v-col cols="12" class="text-end">
@@ -55,9 +55,22 @@
       });
       const submit = () => {
         'id' in router.currentRoute.params
-          ? store.dispatch('updateProduct', router.currentRoute.params.id)
+          ? store.dispatch(
+              'updateProduct',
+              router.currentRoute.params.id,
+              productImages,
+            )
           : store.dispatch('saveProduct', productImages);
         router.push({ name: 'Products' });
+      };
+      const setPath = (image) => {
+        productImages.path = image;
+      };
+      const setFirstImage = (image) => {
+        productImages.images[0] = image;
+      };
+      const setSecondImage = (image) => {
+        productImages.images[1] = image;
       };
       const fillImages = () => {
         productImages.path = currentProduct.value.path;
@@ -77,6 +90,9 @@
       return {
         submit,
         productImages,
+        setPath,
+        setFirstImage,
+        setSecondImage,
       };
     },
   };

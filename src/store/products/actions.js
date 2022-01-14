@@ -16,8 +16,12 @@ const actions = {
     });
     commit('filterProducts');
   },
-  updateProduct({ commit, state }, data) {
-    commit('updateProduct', { id: data, ...state.currentProduct });
+  updateProduct({ commit, state }, productId, imagesData) {
+    commit('updateProduct', {
+      id: productId,
+      ...state.currentProduct,
+      ...imagesData,
+    });
     commit('filterProducts');
   },
   removeProduct({ commit }, data) {

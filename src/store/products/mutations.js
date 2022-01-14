@@ -38,8 +38,10 @@ const mutations = {
     state.allProducts.push(payload);
   },
   updateProduct(state, payload) {
-    state.allProducts.map((product) => {
-      if (product.id === payload.id) Object.assign(product, payload);
+    state.products.map((product) => {
+      if (product.id === payload.id) {
+        for (const key in payload) product[key] = payload[key];
+      }
     });
   },
   removeProduct(state, payload) {

@@ -45,11 +45,19 @@
         </span>
       </div>
     </v-col>
+
+    <v-dialog v-model="removeDialog" width="640px">
+      <AppProductsRemoveMessage
+        @submit="confirmRemove"
+        @closeDialog="removeDialog = false"
+      ></AppProductsRemoveMessage>
+    </v-dialog>
   </v-row>
 </template>
 
 <script>
   import { mapGetters } from 'vuex';
+  import AppProductsRemoveMessage from './AppProductsRemoveMessage';
 
   export default {
     name: 'AppProductsCard',
@@ -79,7 +87,11 @@
         required: true,
       },
     },
+    components: {
+      AppProductsRemoveMessage,
+    },
     data: () => ({
+      removeDialog: false,
       actions: [
         { icon: 'mdi-pencil', name: 'Editar', action: 'update' },
         { icon: 'mdi-delete', name: 'Excluir', action: 'remove' },
@@ -97,6 +109,10 @@
         item.action === 'update'
           ? this.$router.push(`products/update-product/${this.id}`)
           : (this.removeDialog = true);
+      },
+      confirmRemove() {
+        this.$store.commit('removeProduct', this.id);
+        this.removeDialog = false;
       },
     },
   };

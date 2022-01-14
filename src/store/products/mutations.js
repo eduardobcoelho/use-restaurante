@@ -35,6 +35,12 @@ const mutations = {
       if (product.id === payload.id) Object.assign(product, payload);
     });
   },
+  removeProduct(state, payload) {
+    state.allProducts = state.allProducts.filter(
+      (product) => product.id != payload,
+    );
+    state.products = state.products.filter((product) => product.id != payload);
+  },
 };
 
 export default mutations;

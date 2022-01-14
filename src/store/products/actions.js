@@ -16,11 +16,13 @@ const actions = {
     });
     commit('filterProducts');
   },
-  updateProduct({ commit, state }, productId, imagesData) {
+  updateProduct({ commit, state }, data) {
+    const newProduct = new Object(state.currentProduct);
+    delete newProduct.path;
+    delete newProduct.images;
     commit('updateProduct', {
-      id: productId,
-      ...state.currentProduct,
-      ...imagesData,
+      ...newProduct,
+      ...data,
     });
     commit('filterProducts');
   },

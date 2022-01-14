@@ -81,7 +81,7 @@
         const fileReader = new FileReader();
         fileReader.addEventListener('load', () => {
           this.imageBase64 = fileReader.result;
-          this.$emit('setImage', this.imageBase64);
+          this.$emit('input', this.imageBase64);
         });
         fileReader.readAsDataURL(file);
       },

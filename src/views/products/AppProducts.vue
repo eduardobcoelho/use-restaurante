@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  import { ref, computed } from '@vue/composition-api';
+  import { ref, computed, watch } from '@vue/composition-api';
   import store from '@/store';
   import AppProductsCategories from './AppProductsCategories';
   import AppProductsSearch from './AppProductsSearch';
@@ -39,18 +39,23 @@
     },
     setup() {
       const page = ref(1);
+      const products = computed(() => store.getters.products);
       store.commit('resetFilters');
-      store.commit('setPaginationLength');
       const setProductsByPagination = () => {
+        store.commit('setPaginationLength');
         store.dispatch('setProductsByPagination', page.value);
       };
+      watch(products, () => {
+        page.value = 1;
+        setProductsByPagination();
+      });
       setProductsByPagination();
 
       return {
         page: page,
         setProductsByPagination,
         paginationLength: computed(() => store.getters.paginationLength),
-        products: computed(() => store.getters.products),
+        products: products,
       };
     },
   };

@@ -1,8 +1,8 @@
 const actions = {
   setProductsByPagination({ commit, state }, payload) {
     commit(
-      'setProducts',
-      state.allProducts.slice(
+      'setProductsPaginated',
+      state.products.slice(
         (payload - 1) * 5,
         this.state.pagination.perPage * payload,
       ),

@@ -45,7 +45,7 @@
     },
     setup() {
       return {
-        products: computed(() => store.getters.products),
+        products: computed(() => store.getters.productsPaginated),
       };
     },
   };

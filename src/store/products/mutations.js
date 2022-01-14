@@ -1,6 +1,6 @@
 const mutations = {
-  setProducts(state, payload) {
-    state.products = payload;
+  setProductsPaginated(state, payload) {
+    state.productsPaginated = payload;
   },
   setCurrentProduct(state, payload) {
     state.currentProduct = payload;

@@ -10,7 +10,7 @@
       <AppProductsList v-if="products.length > 0" />
       <AppProductsEmpty v-else />
     </v-col>
-    <v-col cols="12" class="text-center">
+    <v-col v-show="products.length > 0" cols="12" class="text-center">
       <v-pagination
         v-model="page"
         :length="paginationLength"

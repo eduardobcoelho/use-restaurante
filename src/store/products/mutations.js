@@ -30,9 +30,8 @@ const mutations = {
         product.name.toLowerCase().includes(state.freeSearch.toLowerCase()),
       );
     if (state.orderBy) {
-      state.products.sort((a, b) =>
-        state.orderBy === 1 ? a.value + b.value : a.value - b.value,
-      );
+      state.products.sort((a, b) => a.value - b.value);
+      if (state.orderBy === 1) state.products.sort().reverse();
     }
   },
   addProduct(state, payload) {

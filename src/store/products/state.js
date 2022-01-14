@@ -106,6 +106,15 @@ const state = {
       value: 1500,
       path: '@/assets/images/products/coca_cola.png',
     },
+    {
+      id: '805aa0da-d6bb-4885-8554-e405a6ebd79d',
+      name: 'Combo Brownie + Cola-cola',
+      capacity: '2119a4bc-5a6b-4e15-b313-cbbdcbc8cb0b',
+      details: '',
+      category: 'promotion',
+      value: 1000,
+      path: '@/assets/images/products/coca_cola.png',
+    },
   ],
   products: [
     {

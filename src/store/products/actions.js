@@ -1,4 +1,13 @@
 const actions = {
+  setProductsByPagination({ commit, state }, payload) {
+    commit(
+      'setProducts',
+      state.allProducts.slice(
+        (payload - 1) * 5,
+        this.state.pagination.perPage * payload,
+      ),
+    );
+  },
   saveProduct({ commit, state }) {
     commit('addProduct', {
       id: 'ba74b331-d412-40e2-8830-6b1ff484021b',

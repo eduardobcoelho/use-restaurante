@@ -1,6 +1,6 @@
 const mutations = {
-  setProductsInitialState(state) {
-    state.products = state.allProducts;
+  setProducts(state, payload) {
+    state.products = payload;
   },
   setCurrentProduct(state, payload) {
     state.currentProduct = payload;

@@ -2,14 +2,25 @@
   <div
     :style="`min-height: ${minHeight}px;`"
     class="uploader border-radius-12 w-100 pa-4 d-flex justify-content-center align-items-center"
+    @click="uploaderClick"
   >
+    <input
+      type="file"
+      ref="fileInput"
+      accept="image/*"
+      @change="onPickFile"
+      style="display: none"
+    />
     <div
       v-if="isCover"
       class="uploader__isCover-tag d-flex justify-content-center align-items-center"
     >
       <span class="font-size-17 grayDark--text">Capa</span>
     </div>
-    <div class="uploader__content d-flex flex-column align-items-center">
+    <div
+      v-if="!imageBase64"
+      class="uploader__content d-flex flex-column align-items-center"
+    >
       <v-img
         src="@/assets/images/products/upload.svg"
         max-width="53px"
@@ -25,6 +36,8 @@
 </template>
 
 <script>
+  import { ref, watch } from '@vue/composition-api';
+
   export default {
     name: 'NewProductUploaderPicture',
     props: {
@@ -36,6 +49,33 @@
         type: Boolean,
         default: false,
       },
+    },
+    setup() {
+      let imageBase64 = ref('');
+      const fileInput = ref(null);
+      const uploaderClick = () => {
+        fileInput.value.click();
+      };
+      const onPickFile = () => {
+        const file = fileInput.value.files[0];
+        const fileReader = new FileReader();
+        fileReader.addEventListener('load', () => {
+          imageBase64.value = fileReader.result;
+        });
+        fileReader.readAsDataURL(file);
+      };
+
+      watch(imageBase64, (val) => {
+        const uploader = document.getElementsByClassName('uploader')[0];
+        uploader.style.backgroundImage = `url(${val})`;
+      });
+
+      return {
+        fileInput,
+        imageBase64,
+        uploaderClick,
+        onPickFile,
+      };
     },
   };
 </script>

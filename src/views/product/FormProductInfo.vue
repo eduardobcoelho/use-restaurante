@@ -112,7 +112,7 @@
         category: '',
         value: '',
         path: '',
-        images: [],
+        images: [null, null],
       });
       // form validations
       const requiredField = (v) => !!v || 'Campo obrigatório';

@@ -62,10 +62,15 @@
     }),
     watch: {
       imageBase64(val) {
-        const uploader = document.getElementById(this.reference);
-        uploader.style.backgroundImage = `url(${val})`;
-        this.$emit('setImage', val);
+        this.setBackgroundUploader(val);
       },
+    },
+    created() {
+      if ('id' in this.$route.params && this.image)
+        this.imageBase64 = this.image;
+    },
+    mounted() {
+      if (this.image) this.setBackgroundUploader(this.image);
     },
     methods: {
       uploaderClick() {
@@ -76,8 +81,13 @@
         const fileReader = new FileReader();
         fileReader.addEventListener('load', () => {
           this.imageBase64 = fileReader.result;
+          this.$emit('setImage', this.imageBase64);
         });
         fileReader.readAsDataURL(file);
+      },
+      setBackgroundUploader(image) {
+        const uploader = document.getElementById(this.reference);
+        uploader.style.backgroundImage = `url(${image})`;
       },
     },
   };

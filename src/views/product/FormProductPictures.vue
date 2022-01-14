@@ -37,7 +37,7 @@
 </template>
 
 <script>
-  import { reactive } from '@vue/composition-api';
+  import { reactive, computed } from '@vue/composition-api';
   import router from '@/router';
   import store from '@/store';
   import FormProductPicturesUploader from './FormProductPicturesUploader';
@@ -48,6 +48,7 @@
       FormProductPicturesUploader,
     },
     setup() {
+      const currentProduct = computed(() => store.getters.currentProduct);
       const productImages = reactive({
         path: null,
         images: [null, null],
@@ -58,6 +59,20 @@
           : store.dispatch('saveProduct', productImages);
         router.push({ name: 'Products' });
       };
+      const fillImages = () => {
+        productImages.path = currentProduct.value.path;
+        if (
+          currentProduct.value.images.length >= 1 &&
+          currentProduct.value.images[0]
+        )
+          productImages.images[0] = currentProduct.value.images[0];
+        if (
+          currentProduct.value.images.length >= 2 &&
+          currentProduct.value.images[1]
+        )
+          productImages.images[1] = currentProduct.value.images[1];
+      };
+      if ('id' in router.currentRoute.params) fillImages();
 
       return {
         submit,

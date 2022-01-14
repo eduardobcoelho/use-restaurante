@@ -24,6 +24,7 @@ const state = {
       category: 'fullDish',
       value: 14990,
       path: '@/assets/images/products/salada_de_polvo.svg',
+      images: [],
     },
     {
       id: '0393f3f2-1f1d-4c51-9ba4-14c57902d568',
@@ -33,6 +34,7 @@ const state = {
       category: 'fullDish',
       value: 12000,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: '103675dd-8a8c-46da-b82f-23903f5763b7',
@@ -42,6 +44,7 @@ const state = {
       category: 'fullDish',
       value: 11000,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: 'ef0c77b3-9146-408b-96d3-928d867b64f5',
@@ -51,6 +54,7 @@ const state = {
       category: 'drink',
       value: 650,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: 'ef05b6f8-5e41-4133-8f2c-c61dbfdf53cc',
@@ -60,6 +64,7 @@ const state = {
       category: 'drink',
       value: 850,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: '319ced2c-7273-4f6e-b544-bcc2f0d90970',
@@ -69,6 +74,7 @@ const state = {
       category: 'drink',
       value: 860,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: 'd417666a-e2e4-430c-a921-8edb1960fa8f',
@@ -78,6 +84,7 @@ const state = {
       category: 'dessert',
       value: 1500,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: '38ef5f96-1112-4f60-9326-0dae941e4848',
@@ -87,6 +94,7 @@ const state = {
       category: 'dessert',
       value: 1250,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: '858c374d-7631-4084-86f9-8148054f46a7',
@@ -96,6 +104,7 @@ const state = {
       category: 'dessert',
       value: 500,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: '498bc7e5-ec8c-4be5-8d05-17e4017f461e',
@@ -105,6 +114,7 @@ const state = {
       category: 'promotion',
       value: 1500,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: '805aa0da-d6bb-4885-8554-e405a6ebd79d',
@@ -114,6 +124,7 @@ const state = {
       category: 'promotion',
       value: 1000,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
   ],
   products: [
@@ -126,6 +137,7 @@ const state = {
       category: 'fullDish',
       value: 14990,
       path: '@/assets/images/products/salada_de_polvo.svg',
+      images: [],
     },
     {
       id: '0393f3f2-1f1d-4c51-9ba4-14c57902d568',
@@ -135,6 +147,7 @@ const state = {
       category: 'fullDish',
       value: 12000,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: '103675dd-8a8c-46da-b82f-23903f5763b7',
@@ -144,6 +157,7 @@ const state = {
       category: 'fullDish',
       value: 11000,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: 'ef0c77b3-9146-408b-96d3-928d867b64f5',
@@ -153,6 +167,7 @@ const state = {
       category: 'drink',
       value: 650,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: 'ef05b6f8-5e41-4133-8f2c-c61dbfdf53cc',
@@ -162,6 +177,7 @@ const state = {
       category: 'drink',
       value: 850,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: '319ced2c-7273-4f6e-b544-bcc2f0d90970',
@@ -171,6 +187,7 @@ const state = {
       category: 'drink',
       value: 860,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: 'd417666a-e2e4-430c-a921-8edb1960fa8f',
@@ -180,6 +197,7 @@ const state = {
       category: 'dessert',
       value: 1500,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: '38ef5f96-1112-4f60-9326-0dae941e4848',
@@ -189,6 +207,7 @@ const state = {
       category: 'dessert',
       value: 1250,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: '858c374d-7631-4084-86f9-8148054f46a7',
@@ -198,6 +217,7 @@ const state = {
       category: 'dessert',
       value: 500,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: '498bc7e5-ec8c-4be5-8d05-17e4017f461e',
@@ -207,6 +227,7 @@ const state = {
       category: 'promotion',
       value: 1500,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
     {
       id: '805aa0da-d6bb-4885-8554-e405a6ebd79d',
@@ -216,6 +237,7 @@ const state = {
       category: 'promotion',
       value: 1000,
       path: '@/assets/images/products/coca_cola.png',
+      images: [],
     },
   ],
   productsPaginated: [],

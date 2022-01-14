@@ -111,6 +111,8 @@
         details: '',
         category: '',
         value: '',
+        path: '',
+        images: [],
       });
       // form validations
       const requiredField = (v) => !!v || 'Campo obrigatório';

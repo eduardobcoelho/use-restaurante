@@ -7,15 +7,26 @@
     </v-col>
     <v-col cols="12">
       <FormProductPicturesUploader
+        reference="uploader1"
+        :image="productImages.path"
         :minHeight="296"
         isCover
+        @setImage="(val) => (productImages.path = val)"
       ></FormProductPicturesUploader>
     </v-col>
     <v-col cols="12" md="6">
-      <FormProductPicturesUploader></FormProductPicturesUploader
+      <FormProductPicturesUploader
+        reference="uploader2"
+        :image="productImages.images[0]"
+        @setImage="(val) => (productImages.images[0] = val)"
+      ></FormProductPicturesUploader
     ></v-col>
     <v-col cols="12" md="6">
-      <FormProductPicturesUploader></FormProductPicturesUploader>
+      <FormProductPicturesUploader
+        reference="uploader3"
+        :image="productImages.images[1]"
+        @setImage="(val) => (productImages.images[1] = val)"
+      ></FormProductPicturesUploader>
     </v-col>
     <v-col cols="12" class="text-end">
       <v-btn @click="submit" min-width="224px" color="orangeDark">
@@ -26,6 +37,7 @@
 </template>
 
 <script>
+  import { reactive } from '@vue/composition-api';
   import router from '@/router';
   import store from '@/store';
   import FormProductPicturesUploader from './FormProductPicturesUploader';
@@ -36,15 +48,20 @@
       FormProductPicturesUploader,
     },
     setup() {
+      const productImages = reactive({
+        path: null,
+        images: [null, null],
+      });
       const submit = () => {
         'id' in router.currentRoute.params
           ? store.dispatch('updateProduct', router.currentRoute.params.id)
-          : store.dispatch('saveProduct');
+          : store.dispatch('saveProduct', productImages);
         router.push({ name: 'Products' });
       };
 
       return {
         submit,
+        productImages,
       };
     },
   };

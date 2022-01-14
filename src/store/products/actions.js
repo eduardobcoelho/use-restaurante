@@ -1,18 +1,18 @@
 const actions = {
-  setProductsByPagination({ commit, state }, payload) {
+  setProductsByPagination({ commit, state }, data) {
     commit(
       'setProductsPaginated',
       state.products.slice(
-        (payload - 1) * 5,
-        this.state.pagination.perPage * payload,
+        (data - 1) * 5,
+        this.state.pagination.perPage * data,
       ),
     );
   },
-  saveProduct({ commit, state }) {
+  saveProduct({ commit, state }, data) {
     commit('addProduct', {
-      id: 'ba74b331-d412-40e2-8830-6b1ff484021b',
-      path: '@/assets/images/products/salada_de_polvo.svg',
+      id: '128909be-bdab-4e06-b6a5-13dc40062bd0',
       ...state.currentProduct,
+      ...data,
     });
     commit('filterProducts');
   },

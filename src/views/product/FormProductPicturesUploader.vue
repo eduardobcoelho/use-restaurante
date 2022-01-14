@@ -1,12 +1,13 @@
 <template>
   <div
+    :id="reference"
     :style="`min-height: ${minHeight}px;`"
     class="uploader border-radius-12 w-100 pa-4 d-flex justify-content-center align-items-center"
     @click="uploaderClick"
   >
     <input
       type="file"
-      ref="fileInput"
+      :ref="reference"
       accept="image/*"
       @change="onPickFile"
       style="display: none"
@@ -36,11 +37,17 @@
 </template>
 
 <script>
-  import { ref, watch } from '@vue/composition-api';
-
   export default {
     name: 'NewProductUploaderPicture',
     props: {
+      reference: {
+        type: String,
+        required: true,
+      },
+      image: {
+        type: String,
+        default: null,
+      },
       minHeight: {
         type: Number,
         default: 186,
@@ -50,32 +57,28 @@
         default: false,
       },
     },
-    setup() {
-      let imageBase64 = ref('');
-      const fileInput = ref(null);
-      const uploaderClick = () => {
-        fileInput.value.click();
-      };
-      const onPickFile = () => {
-        const file = fileInput.value.files[0];
+    data: () => ({
+      imageBase64: '',
+    }),
+    watch: {
+      imageBase64(val) {
+        const uploader = document.getElementById(this.reference);
+        uploader.style.backgroundImage = `url(${val})`;
+        this.$emit('setImage', val);
+      },
+    },
+    methods: {
+      uploaderClick() {
+        this.$refs[this.reference].click();
+      },
+      onPickFile() {
+        const file = this.$refs[this.reference].files[0];
         const fileReader = new FileReader();
         fileReader.addEventListener('load', () => {
-          imageBase64.value = fileReader.result;
+          this.imageBase64 = fileReader.result;
         });
         fileReader.readAsDataURL(file);
-      };
-
-      watch(imageBase64, (val) => {
-        const uploader = document.getElementsByClassName('uploader')[0];
-        uploader.style.backgroundImage = `url(${val})`;
-      });
-
-      return {
-        fileInput,
-        imageBase64,
-        uploaderClick,
-        onPickFile,
-      };
+      },
     },
   };
 </script>

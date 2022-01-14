@@ -1,4 +1,7 @@
 const mutations = {
+  setProductsInitialState(state) {
+    state.products = state.allProducts;
+  },
   setCurrentProduct(state, payload) {
     state.currentProduct = payload;
   },
@@ -10,6 +13,11 @@ const mutations = {
   },
   setOrderBy(state, payload) {
     state.orderBy = payload;
+  },
+  resetFilters(state) {
+    state.category = null;
+    state.freeSearch = null;
+    state.orderBy = null;
   },
   filterProducts(state) {
     state.products = new Array(...state.allProducts);

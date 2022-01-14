@@ -11,5 +11,8 @@ const actions = {
     commit('updateProduct', { id: data, ...state.currentProduct });
     commit('filterProducts');
   },
+  removeProduct({ commit }, data) {
+    commit('removeProduct', data);
+  },
 };
 export default actions;

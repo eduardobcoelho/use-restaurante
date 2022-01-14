@@ -1,5 +1,10 @@
 <template>
   <div class="w-100 d-flex justify-content-center">
+    <div class="btn-back">
+      <v-btn @click="toProducts" icon color="black">
+        <v-icon>mdi-chevron-left</v-icon>
+      </v-btn>
+    </div>
     <v-row class="form-product ma-0">
       <v-col cols="12" md="6">
         <FormProductHeader
@@ -53,7 +58,20 @@
 </script>
 
 <style lang="scss">
+  .btn-back {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+
   .form-product {
     max-width: 639px;
+    position: relative;
+  }
+
+  @media screen and (max-width: 800px) {
+    .btn-back {
+      display: none;
+    }
   }
 </style>

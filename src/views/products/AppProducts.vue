@@ -30,6 +30,9 @@
       AppProductsEmpty,
     },
     setup() {
+      store.commit('resetFilters');
+      store.commit('setProductsInitialState');
+
       return {
         products: computed(() => store.getters.products),
       };

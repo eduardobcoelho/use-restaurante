@@ -111,7 +111,7 @@
           : (this.removeDialog = true);
       },
       confirmRemove() {
-        this.$store.commit('removeProduct', this.id);
+        this.$store.dispatch('removeProduct', this.id);
         this.removeDialog = false;
       },
     },

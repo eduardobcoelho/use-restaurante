@@ -86,6 +86,7 @@
           :disabled="!valid"
           min-width="224px"
           color="orangeDark"
+          class="border-radius-12"
         >
           <span class="white--text">Próximo</span>
         </v-btn>

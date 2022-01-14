@@ -29,8 +29,15 @@
       ></FormProductPicturesUploader>
     </v-col>
     <v-col cols="12" class="text-end">
-      <v-btn @click="submit" min-width="224px" color="orangeDark">
-        <span class="white--text">Cadastrar produto</span>
+      <v-btn
+        @click="submit"
+        min-width="224px"
+        color="orangeDark"
+        class="border-radius-12"
+      >
+        <span class="white--text">{{
+          isUpdating ? 'Salvar alterações' : 'Cadastrar produto'
+        }}</span>
       </v-btn>
     </v-col>
   </v-row>
@@ -80,6 +87,7 @@
       return {
         submit,
         productImages,
+        isUpdating: 'id' in router.currentRoute.params,
       };
     },
   };

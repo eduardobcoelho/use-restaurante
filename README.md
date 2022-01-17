@@ -1,4 +1,4 @@
-# teste
+# use-restaurante
 
 ## Project setup
 

@@ -15,6 +15,10 @@ const actions = {
       ...data,
     });
     commit('filterProducts');
+    this.commit('setNotification', {
+      type: 'success',
+      message: 'Produto cadastrado',
+    });
   },
   updateProduct({ commit, state }, data) {
     const newProduct = new Object(state.currentProduct);
@@ -25,9 +29,17 @@ const actions = {
       ...data,
     });
     commit('filterProducts');
+    this.commit('setNotification', {
+      type: 'success',
+      message: 'Dado(s) do produto atualizado(s)',
+    });
   },
   removeProduct({ commit }, data) {
     commit('removeProduct', data);
+    this.commit('setNotification', {
+      type: 'success',
+      message: 'Produto removido',
+    });
   },
 };
 export default actions;

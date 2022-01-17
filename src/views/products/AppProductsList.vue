@@ -12,7 +12,7 @@
         :name="product.name"
         :capacityId="product.capacity"
         :details="product.details"
-        :value="currencyFormat(product.value)"
+        :value="currencyFormat(Number(product.value))"
       ></AppProductsCard>
     </v-col>
     <v-col

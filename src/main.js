@@ -4,14 +4,19 @@ import './registerServiceWorker';
 import router from './router';
 import store from './store';
 import vuetify from './plugins/vuetify';
+// Composition API
 import VueCompositionAPI from '@vue/composition-api';
+Vue.use(VueCompositionAPI);
+
+// Toast notification
+import Toast from 'vue-toastification';
+import 'vue-toastification/dist/index.css';
+Vue.use(Toast);
 
 import '@/assets/css/main.css';
 import '@/mixin';
 
 Vue.config.productionTip = false;
-
-Vue.use(VueCompositionAPI);
 
 new Vue({
   router,

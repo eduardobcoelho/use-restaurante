@@ -37,16 +37,12 @@
         </div>
       </v-col>
       <v-col cols="12">
-        <v-text-field
+        <MoneyInput
           v-model="model.value"
-          type="number"
-          color="orange"
-          label="Valor (R$)"
-          class="border-radius-12"
-          outlined
-          hide-details
+          :value="model.value"
+          :options="{ currency: 'BRL' }"
           :rules="[requiredField]"
-        ></v-text-field>
+        ></MoneyInput>
       </v-col>
       <v-col cols="12">
         <v-select
@@ -99,9 +95,13 @@
   import { ref, reactive, computed } from '@vue/composition-api';
   import store from '@/store';
   import router from '@/router';
+  import MoneyInput from '@/components/MoneyInput.vue';
 
   export default {
     name: 'FormProductInfo',
+    components: {
+      MoneyInput,
+    },
     setup(_, { emit }) {
       // variables & model
       const formProductInfo = ref(null);
@@ -111,7 +111,7 @@
         capacity: '',
         details: '',
         category: '',
-        value: '',
+        value: null,
         path: '',
         images: [null, null],
       });

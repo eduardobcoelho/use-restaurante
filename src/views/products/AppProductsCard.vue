@@ -5,12 +5,7 @@
       md="3"
       class="product-card__image-container pa-0 pr-0 pr-md-2"
     >
-      <v-img
-        src="@/assets/images/products/salada_de_polvo.svg"
-        :alt="name"
-        title="produto"
-        height="100%"
-      ></v-img>
+      <v-img :src="path" :alt="name" title="produto" height="100%"></v-img>
     </v-col>
     <v-col
       cols="12"

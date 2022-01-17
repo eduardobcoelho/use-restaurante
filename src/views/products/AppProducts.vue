@@ -40,6 +40,7 @@
     setup() {
       const page = ref(1);
       const products = computed(() => store.getters.products);
+      store.commit('setProductsInitialState');
       store.commit('resetFilters');
       const setProductsByPagination = () => {
         store.commit('setPaginationLength');

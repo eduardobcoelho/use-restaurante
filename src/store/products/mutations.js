@@ -1,4 +1,7 @@
 const mutations = {
+  setProductsInitialState(state) {
+    state.products = state.allProducts;
+  },
   setProductsPaginated(state, payload) {
     state.productsPaginated = payload;
   },

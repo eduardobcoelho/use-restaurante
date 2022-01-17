@@ -4,6 +4,9 @@
     :style="`min-height: ${minHeight}px;`"
     class="uploader border-radius-12 w-100 pa-4 d-flex justify-content-center align-items-center"
     @click="uploaderClick"
+    @drop.prevent="dropFile($event)"
+    @dragenter.prevent
+    @dragover.prevent
   >
     <input
       type="file"
@@ -76,8 +79,16 @@
       uploaderClick() {
         this.$refs[this.reference].click();
       },
+      dropFile(e) {
+        const files = e.dataTransfer.files;
+        const file = files[0];
+        this.setImageBase64(file);
+      },
       onPickFile() {
         const file = this.$refs[this.reference].files[0];
+        this.setImageBase64(file);
+      },
+      setImageBase64(file) {
         const fileReader = new FileReader();
         fileReader.addEventListener('load', () => {
           this.imageBase64 = fileReader.result;

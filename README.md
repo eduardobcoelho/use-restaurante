@@ -23,3 +23,9 @@ npm run build
 ```JavaScript
 npm run lint
 ```
+
+### Run tests
+
+```JavaScript
+npm run test:unit
+```

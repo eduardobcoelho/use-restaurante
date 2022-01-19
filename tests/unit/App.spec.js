@@ -29,11 +29,6 @@ describe('App', () => {
     router = new VueRouter();
   });
 
-  it('É um component vue', () => {
-    const wrapper = shallowMount(App, { localVue, store, router });
-    expect(wrapper.isVueInstance()).toBeTruthy();
-  });
-
   it('Contém os elementos de única instância', () => {
     const wrapper = shallowMount(App, { localVue, store, router });
     const header = wrapper.findComponent({ name: 'TheHeader' });

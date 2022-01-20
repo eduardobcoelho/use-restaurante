@@ -45,14 +45,34 @@ describe('FormProductPictures.vue', () => {
     expect(uploaders).toHaveLength(3);
   });
 
-  it('Chamar updateProduct quando id estiver na rota', async () => {
+  it('isUpdating false quando id não estiver na rota', async () => {
     const wrapper = shallowMount(FormProductPictures, {
       store,
       router,
+      data: () => ({
+        isUpdating: false,
+      }),
+      localVue,
+    });
+    await wrapper.setData({ isUpdating: 'id' in wrapper.vm.$route.params });
+    //await wrapper.find('[data-test="btn-submit"]').trigger('click');
+    expect(wrapper.vm.isUpdating).toBe(false);
+    //expect(actions.saveProduct).toHaveBeenCalled();
+  });
+
+  it('isUpdating true quando id estiver na rota', async () => {
+    const wrapper = shallowMount(FormProductPictures, {
+      store,
+      router,
+      data: () => ({
+        isUpdating: false,
+      }),
       localVue,
     });
     await wrapper.vm.$router.push('/products/update-product/123456');
-    await wrapper.find('[data-test="btn-submit"]').trigger('click');
-    expect(actions.updateProduct).toHaveBeenCalled();
+    await wrapper.setData({ isUpdating: 'id' in wrapper.vm.$route.params });
+    //await wrapper.find('[data-test="btn-submit"]').trigger('click');
+    expect(wrapper.vm.isUpdating).toBe(true);
+    //expect(actions.updateProduct).toHaveBeenCalled();
   });
 });

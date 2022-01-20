@@ -41,7 +41,7 @@
 
 <script>
   export default {
-    name: 'NewProductUploaderPicture',
+    name: 'FormProductPicturesUploader',
     props: {
       reference: {
         type: String,

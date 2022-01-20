@@ -34,6 +34,7 @@
         min-width="224px"
         color="orangeDark"
         class="border-radius-12"
+        data-test="btn-submit"
       >
         <span class="white--text">{{
           isUpdating ? 'Salvar alterações' : 'Cadastrar produto'

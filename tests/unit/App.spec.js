@@ -10,7 +10,7 @@ localVue.use(Vuex);
 localVue.use(VueRouter);
 Vue.use(Vuetify);
 
-describe('App', () => {
+describe('App.vue', () => {
   let store;
   let router;
 
@@ -22,7 +22,7 @@ describe('App', () => {
       getters: {
         notification: () => ({
           type: 'info',
-          message: 'Vocêe está no App.vue',
+          message: 'Você está no App.vue',
         }),
       },
     });

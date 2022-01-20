@@ -5,7 +5,7 @@ import Vuetify from 'vuetify';
 
 Vue.use(Vuetify);
 
-describe('FormProductHeader', () => {
+describe('FormProductHeader.vue', () => {
   it('Mostra o título corretamente', () => {
     const wrapper = shallowMount(FormProductHeader, {
       propsData: {

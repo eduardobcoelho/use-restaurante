@@ -9,6 +9,15 @@ localVue.mixin(Mixin);
 Vue.use(Vuetify);
 
 describe('FormProduct.vue', () => {
+  it('Possui header informativo', () => {
+    const wrapper = shallowMount(FormProduct, {
+      localVue,
+    });
+    expect(wrapper.findComponent({ name: 'FormProductHeader' }).exists()).toBe(
+      true,
+    );
+  });
+
   it('Step 1 mostra o componente FormProductInfo', () => {
     const wrapper = shallowMount(FormProduct, {
       localVue,

@@ -24,12 +24,17 @@ describe('FormProductPictures.vue', () => {
     store = new Vuex.Store({
       actions,
     });
-    router = new VueRouter([
-      {
-        name: 'UpdateProduct',
-        path: '/products/update-product/:id',
-      },
-    ]);
+    router = new VueRouter({
+      mode: 'history',
+      base: '/',
+      routes: [
+        {
+          name: 'UpdateProduct',
+          path: '/products/update-product/:id',
+          component: () => import('@/views/product/UpdateProduct.vue'),
+        },
+      ],
+    });
   });
 
   it('Possui os três componentes de uploader', () => {
@@ -46,11 +51,7 @@ describe('FormProductPictures.vue', () => {
       router,
       localVue,
     });
-    await wrapper.vm.$router.push({
-      name: 'UpdateProduct',
-      path: '/products/update-product/123456',
-      params: { id: '123456' },
-    });
+    await wrapper.vm.$router.push('/products/update-product/123456');
     await wrapper.find('[data-test="btn-submit"]').trigger('click');
     expect(actions.updateProduct).toHaveBeenCalled();
   });

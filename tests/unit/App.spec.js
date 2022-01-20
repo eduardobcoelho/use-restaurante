@@ -31,12 +31,9 @@ describe('App.vue', () => {
 
   it('Contém os elementos de única instância', () => {
     const wrapper = shallowMount(App, { localVue, store, router });
-    const header = wrapper.findComponent({ name: 'TheHeader' });
-    expect(header.exists()).toBe(true);
-    const main = wrapper.findComponent({ name: 'VMain' });
-    expect(main.exists()).toBe(true);
-    const footer = wrapper.findComponent({ name: 'TheFooter' });
-    expect(footer.exists()).toBe(true);
+    expect(wrapper.findComponent({ name: 'TheHeader' }).exists()).toBe(true);
+    expect(wrapper.findComponent({ name: 'VMain' }).exists()).toBe(true);
+    expect(wrapper.findComponent({ name: 'TheFooter' }).exists()).toBe(true);
   });
 
   it('Contém o router-view', () => {

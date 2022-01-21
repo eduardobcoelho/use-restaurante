@@ -22,7 +22,7 @@
       <span class="font-size-17 grayDark--text">Capa</span>
     </div>
     <div
-      v-if="!imageBase64"
+      v-if="!image"
       class="uploader__content d-flex flex-column align-items-center"
     >
       <v-img
@@ -60,18 +60,6 @@
         default: false,
       },
     },
-    data: () => ({
-      imageBase64: '',
-    }),
-    watch: {
-      imageBase64(val) {
-        this.setBackgroundUploader(val);
-      },
-    },
-    created() {
-      if ('id' in this.$route.params && this.image)
-        this.imageBase64 = this.image;
-    },
     mounted() {
       if (this.image) this.setBackgroundUploader(this.image);
     },
@@ -91,8 +79,9 @@
       setImageBase64(file) {
         const fileReader = new FileReader();
         fileReader.addEventListener('load', () => {
-          this.imageBase64 = fileReader.result;
-          this.$emit('input', this.imageBase64);
+          const result = fileReader.result;
+          this.setBackgroundUploader(result);
+          this.$emit('input', result);
         });
         fileReader.readAsDataURL(file);
       },
@@ -107,6 +96,8 @@
 <style lang="scss">
   .uploader {
     background-color: #efefef;
+    background-position: center;
+    background-size: 100%;
     border: 1px solid #c14d19;
     cursor: pointer;
     position: relative;

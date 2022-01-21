@@ -2,7 +2,7 @@
   <footer
     class="app-footer w-100 grayLight d-flex justify-content-center align-items-center"
   >
-    <span class="grayDark--text font-size-17">
+    <span data-test="footer-message" class="grayDark--text font-size-17">
       {{ year }} | Todos os direitos reservados.
     </span>
   </footer>

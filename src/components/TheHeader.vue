@@ -2,9 +2,15 @@
   <header
     class="app-header w-100 pl-5 pr-5 d-flex justify-content-between align-items-center orange"
   >
-    <div @click="toProducts" class="d-flex align-items-center app-header__logo">
+    <div
+      @click="toProducts"
+      data-test="header-logo-content"
+      class="d-flex align-items-center app-header__logo"
+    >
       <img src="@/assets/images/logo.svg" min-width="80" min-height="68" />
-      <span class="ml-6 font-size-20">Olá, {{ user.name }}!</span>
+      <span class="ml-6 font-size-20" data-test="header-user-name"
+        >Olá, {{ user.name }}!</span
+      >
     </div>
 
     <div class="app-header__btn-exit d-flex flex-column">

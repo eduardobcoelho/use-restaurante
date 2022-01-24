@@ -26,21 +26,21 @@
 
 <script>
   import store from '@/store';
-  import { computed } from '@vue/composition-api';
+  import { mapGetters } from 'vuex';
 
   export default {
     name: 'AppProductsCategories',
-    setup() {
-      const filterProducts = (slug, isEqual) => {
+    computed: {
+      ...mapGetters(['categories']),
+      categorySelected() {
+        return store.getters.category;
+      },
+    },
+    methods: {
+      filterProducts(slug, isEqual) {
         store.commit('setCategory', !isEqual ? slug : null);
         store.commit('filterProducts');
-      };
-
-      return {
-        categories: computed(() => store.getters.categories),
-        categorySelected: computed(() => store.getters.category),
-        filterProducts,
-      };
+      },
     },
   };
 </script>

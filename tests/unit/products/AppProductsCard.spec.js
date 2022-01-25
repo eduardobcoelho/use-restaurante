@@ -66,6 +66,17 @@ describe('AppProductsCard.vue', () => {
     });
   });
 
+  it('A propriedade "src" do componente "VImg" deve ser igual a propriedade "path"', () => {
+    expect(wrapper.findComponent({ name: 'VImg' }).vm.$props.src).toEqual(
+      wrapper.vm.$props.path,
+    );
+  });
+
+  it('Quando a propriedade "details" vier com um valor inválido o template deve renderizar "-"', async () => {
+    await wrapper.setProps({ details: '' });
+    expect(wrapper.text()).toContain('-');
+  });
+
   it('Deve demonstrar todas as props exigidas no template do card', () => {
     const capacityDescription = wrapper.vm.getCapacity(
       wrapper.vm.$props.capacityId,
@@ -74,6 +85,12 @@ describe('AppProductsCard.vue', () => {
     expect(wrapper.text()).toContain(wrapper.vm.$props.details);
     expect(wrapper.text()).toContain(wrapper.vm.$props.value);
     expect(wrapper.text()).toContain(capacityDescription);
+  });
+
+  it('Deve conter o componente "AppProductsRemoveMessage"', () => {
+    expect(
+      wrapper.findComponent({ name: 'AppProductsRemoveMessage' }).exists(),
+    ).toBe(true);
   });
 
   it('Deve dar um push na rota de update quando o "doAction("update")" for chamado', async () => {
@@ -100,12 +117,6 @@ describe('AppProductsCard.vue', () => {
     );
   });
 
-  it('Deve ter o componente "AppProductsRemoveMessage"', () => {
-    expect(
-      wrapper.findComponent({ name: 'AppProductsRemoveMessage' }).exists(),
-    ).toBe(true);
-  });
-
   it('Deve chamar a função "confirmRemove" quando o componente "AppProductsRemoveMessage" emitir o evento "submit"', async () => {
     const spy = jest.spyOn(wrapper.vm, 'confirmRemove');
     await wrapper.setData({ removeDialog: true });
@@ -117,5 +128,17 @@ describe('AppProductsCard.vue', () => {
     await wrapper.vm.$nextTick();
     expect('submit' in removeMessage.emitted()).toBe(true);
     expect(spy).toHaveBeenCalled();
+  });
+
+  it('Deve definir o valor de "removeDialog" como "false" quando o componente "AppProductsRemoveMessage" emitir o evento "closeDialog"', async () => {
+    await wrapper.setData({ removeDialog: true });
+    const removeMessage = wrapper.findComponent({
+      name: 'AppProductsRemoveMessage',
+    });
+    await removeMessage.vm.$emit('closeDialog');
+    await removeMessage.vm.$nextTick();
+    await wrapper.vm.$nextTick();
+    expect('closeDialog' in removeMessage.emitted()).toBe(true);
+    expect(wrapper.vm.removeDialog).toBe(false);
   });
 });

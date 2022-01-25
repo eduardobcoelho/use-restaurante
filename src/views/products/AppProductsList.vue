@@ -16,7 +16,6 @@
       ></AppProductsCard>
     </v-col>
     <v-col
-      v-if="products.length > 0"
       cols="12"
       style="max-width: 640px"
       class="pr-0 pl-0 d-flex justify-content-end"

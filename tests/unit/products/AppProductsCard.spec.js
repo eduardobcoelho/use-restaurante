@@ -106,12 +106,16 @@ describe('AppProductsCard.vue', () => {
     ).toBe(true);
   });
 
-  /*it('Deve chamar a função "confirmRemove" quando o componente "AppProductsRemoveMessage" emitir o evento "submit"', async () => {
+  it('Deve chamar a função "confirmRemove" quando o componente "AppProductsRemoveMessage" emitir o evento "submit"', async () => {
+    const spy = jest.spyOn(wrapper.vm, 'confirmRemove');
+    await wrapper.setData({ removeDialog: true });
     const removeMessage = wrapper.findComponent({
       name: 'AppProductsRemoveMessage',
     });
     await removeMessage.vm.$emit('submit');
+    await removeMessage.vm.$nextTick();
     await wrapper.vm.$nextTick();
     expect('submit' in removeMessage.emitted()).toBe(true);
-  });*/
+    expect(spy).toHaveBeenCalled();
+  });
 });

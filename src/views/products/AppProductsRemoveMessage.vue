@@ -23,6 +23,7 @@
         max-width="179px"
         color="orangeDark"
         class="border-radius-12"
+        data-test="btn-submit"
         @click="$emit('submit')"
       >
         <span class="white--text">Sim, apagar</span>
@@ -34,6 +35,7 @@
         color="orangeDark"
         outlined
         class="border-radius-12 ml-4"
+        data-test="btn-close"
         @click="$emit('closeDialog')"
       >
         <span class="orangeDark--text">Não</span>

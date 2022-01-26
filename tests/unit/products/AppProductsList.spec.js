@@ -67,7 +67,7 @@ describe('AppProductsList.vue', () => {
   });
 
   it('A quantidade de "AppProductsCard" deve ser a mesma de "products"', () => {
-    expect(wrapper.findAllComponents({ name: 'AppProductsCard' }).length).toBe(
+    expect(wrapper.findAllComponents({ name: 'AppProductsCard' })).toHaveLength(
       3,
     );
   });

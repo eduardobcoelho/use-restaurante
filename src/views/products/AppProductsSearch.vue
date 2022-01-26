@@ -60,36 +60,32 @@
 </template>
 
 <script>
-  import { computed } from '@vue/composition-api';
-  import store from '@/store';
+  import { mapGetters } from 'vuex';
 
   export default {
     name: 'AppProductsSearch',
-    setup() {
-      let debounce = null;
-      const setFreeSearch = (val) => {
-        clearTimeout(debounce);
-        debounce = setTimeout(() => {
-          store.commit('setFreeSearch', val);
-          store.commit('filterProducts');
+    data: () => ({
+      debounce: null,
+      ordersByMap: {
+        1: 'Maior preço',
+        2: 'Menor preço',
+      },
+    }),
+    computed: {
+      ...mapGetters(['freeSearch', 'orderBy', 'ordersBy']),
+    },
+    methods: {
+      setFreeSearch(val) {
+        clearTimeout(this.debounce);
+        this.debounce = setTimeout(() => {
+          this.$store.commit('setFreeSearch', val);
+          this.$store.commit('filterProducts');
         }, 300);
-      };
-      const setOrderBy = (value, isEqual) => {
-        store.commit('setOrderBy', !isEqual ? value : null);
-        store.commit('filterProducts');
-      };
-
-      return {
-        setFreeSearch,
-        setOrderBy,
-        ordersByMap: {
-          1: 'Maior preço',
-          2: 'Menor preço',
-        },
-        freeSearch: computed(() => store.getters.freeSearch),
-        orderBy: computed(() => store.getters.orderBy),
-        ordersBy: computed(() => store.getters.ordersBy),
-      };
+      },
+      setOrderBy(value, isEqual) {
+        this.$store.commit('setOrderBy', !isEqual ? value : null);
+        this.$store.commit('filterProducts');
+      },
     },
   };
 </script>

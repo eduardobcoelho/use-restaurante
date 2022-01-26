@@ -1,6 +1,6 @@
 # use-restaurante
 
-## Project setup
+## Project setup 🚧
 
 ```JavaScript
 npm install
@@ -29,3 +29,7 @@ npm run lint
 ```JavaScript
 npm run test:unit
 ```
+
+## Pendencies 📝
+
+- e2e tests

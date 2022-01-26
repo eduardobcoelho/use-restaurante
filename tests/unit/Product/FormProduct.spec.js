@@ -9,48 +9,52 @@ localVue.mixin(Mixin);
 Vue.use(Vuetify);
 
 describe('FormProduct.vue', () => {
+  const wrapper = shallowMount(FormProduct, {
+    localVue,
+    data: () => ({
+      step: 1,
+    }),
+  });
+
   it('Possui header informativo', () => {
-    const wrapper = shallowMount(FormProduct, {
-      localVue,
-    });
     expect(wrapper.findComponent({ name: 'FormProductHeader' }).exists()).toBe(
       true,
     );
   });
 
-  it('Step 1 mostra o componente FormProductInfo', () => {
-    const wrapper = shallowMount(FormProduct, {
-      localVue,
-      data: () => ({
-        step: 1,
-      }),
-    });
-    const formInfo = wrapper.findComponent({ name: 'FormProductInfo' });
-    expect(formInfo.exists()).toBe(true);
+  it('Step 1 mostra apenas o componente de formulário FormProductInfo', () => {
+    expect(wrapper.findComponent({ name: 'FormProductInfo' }).exists()).toBe(
+      true,
+    );
+    expect(
+      wrapper.findComponent({ name: 'FormProductPictures' }).exists(),
+    ).toBe(false);
   });
 
-  it('Step 2 mostra o componente FormProductPictures', () => {
-    const wrapper = shallowMount(FormProduct, {
-      localVue,
-      data: () => ({
-        step: 2,
-      }),
-    });
-    const formInfo = wrapper.findComponent({ name: 'FormProductPictures' });
-    expect(formInfo.exists()).toBe(true);
+  it('Step 2 mostra apenas o componente de formulário FormProductPictures', async () => {
+    await wrapper.setData({ step: 2 });
+    expect(
+      wrapper.findComponent({ name: 'FormProductPictures' }).exists(),
+    ).toBe(true);
+    expect(wrapper.findComponent({ name: 'FormProductInfo' }).exists()).toBe(
+      false,
+    );
   });
 
   it('Componente troca na mudança do step', async () => {
-    const wrapper = shallowMount(FormProduct, {
-      localVue,
-      data: () => ({
-        step: 1,
-      }),
-    });
-    let currentForm = wrapper.findComponent({ name: 'FormProductInfo' });
-    expect(currentForm.exists()).toBe(true);
+    await wrapper.setData({ step: 1 });
+    expect(wrapper.findComponent({ name: 'FormProductInfo' }).exists()).toBe(
+      true,
+    );
+    expect(
+      wrapper.findComponent({ name: 'FormProductPictures' }).exists(),
+    ).toBe(false);
     await wrapper.setData({ step: 2 });
-    currentForm = wrapper.findComponent({ name: 'FormProductPictures' });
-    expect(currentForm.exists()).toBe(true);
+    expect(
+      wrapper.findComponent({ name: 'FormProductPictures' }).exists(),
+    ).toBe(true);
+    expect(wrapper.findComponent({ name: 'FormProductInfo' }).exists()).toBe(
+      false,
+    );
   });
 });

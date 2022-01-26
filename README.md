@@ -24,7 +24,7 @@ npm run build
 npm run lint
 ```
 
-### Run tests
+### Run unit tests
 
 ```JavaScript
 npm run test:unit

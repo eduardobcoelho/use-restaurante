@@ -1,11 +1,8 @@
-import { createLocalVue, mount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import FormProductPicturesUploader from '@/views/product/FormProductPicturesUploader';
-import VueRouter from 'vue-router';
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 
-const localVue = createLocalVue();
-localVue.use(VueRouter);
 Vue.use(Vuetify);
 
 describe('FormProductPicturesUploader.vue', () => {
@@ -14,13 +11,6 @@ describe('FormProductPicturesUploader.vue', () => {
       reference: 'uploader1',
       isCover: false,
     },
-    localVue,
-  });
-
-  let router;
-
-  beforeEach(() => {
-    router = new VueRouter();
   });
 
   it('Deve mostrar uma tag "Capa" quando isCover for true', async () => {

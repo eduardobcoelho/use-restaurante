@@ -14,6 +14,7 @@
       accept="image/*"
       @change="onPickFile"
       style="display: none"
+      :data-test="`${reference}-input`"
     />
     <div
       v-if="isCover"

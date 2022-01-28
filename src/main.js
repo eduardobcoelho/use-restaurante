@@ -25,4 +25,5 @@ const app = new Vue({
   render: (h) => h(App),
 });
 app.$mount('#app');
-window.app = app;
+
+if (window.Cypress) window.app = app;

@@ -10,7 +10,7 @@ const actions = {
   },
   saveProduct({ commit, state }, data) {
     commit('addProduct', {
-      id: '128909be-bdab-4e06-b6a5-13dc40062bd0',
+      id: crypto.randomUUID(),
       ...state.currentProduct,
       ...data,
     });

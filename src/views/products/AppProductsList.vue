@@ -25,6 +25,7 @@
         dark
         color="orangeDark"
         class="border-radius-12"
+        data-test="cadaster-product"
       >
         <span>Cadastrar produto</span>
       </v-btn>

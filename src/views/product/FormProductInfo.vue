@@ -4,6 +4,7 @@
     @submit.prevent="submitForm"
     ref="formProductInfo"
     lazy-validation
+    data-test="product-form-info"
     class="w-100"
   >
     <v-row class="ma-0 w-100">
@@ -15,6 +16,7 @@
           class="border-radius-12"
           outlined
           hide-details
+          data-test="product-name"
           :rules="[requiredField]"
         ></v-text-field>
       </v-col>
@@ -26,6 +28,7 @@
           class="border-radius-12"
           outlined
           hide-details
+          data-test="product-details"
           :rules="[requiredField, max200]"
         ></v-text-field>
         <div class="text-end">
@@ -42,6 +45,7 @@
           :value="model.value"
           :options="{ currency: 'BRL' }"
           :rules="[requiredField]"
+          data-test="product-value"
         ></MoneyInput>
       </v-col>
       <v-col cols="12">
@@ -55,6 +59,7 @@
           outlined
           class="border-radius-12"
           hide-details
+          data-test="product-category"
           :rules="[requiredField]"
         ></v-select>
       </v-col>

@@ -30,6 +30,13 @@ npm run lint
 npm run test:unit
 ```
 
-## Pendencies 📝
+### Run e2e tests
 
-- e2e tests
+- type on your terminal:
+
+| WARNING: be sure to previously installed npm install! |
+| ----------------------------------------------------- |
+
+```JavaScript
+./node_modules/.bin/cypress open
+```

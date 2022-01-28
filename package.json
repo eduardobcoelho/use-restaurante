@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --port 8000",
+    "serve": "vue-cli-service serve --port 8080",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint",
-    "cy": "./node_modules/.bin/cypress open"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@vue/composition-api": "^1.4.3",

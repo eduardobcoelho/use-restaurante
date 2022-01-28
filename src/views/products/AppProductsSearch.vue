@@ -20,6 +20,7 @@
         hide-details
         dense
         class="border-radius-12"
+        data-test="input-free-search"
         @input="setFreeSearch"
       ></v-text-field>
     </v-col>

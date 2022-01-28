@@ -34,9 +34,9 @@ npm run test:unit
 
 - type on your terminal:
 
-| WARNING: be sure to previously installed npm install! |
-| ----------------------------------------------------- |
-
 ```JavaScript
 ./node_modules/.bin/cypress open
 ```
+
+| WARNING: be sure to previously installed npm install! |
+| ----------------------------------------------------- |

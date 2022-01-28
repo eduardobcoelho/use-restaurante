@@ -67,6 +67,9 @@ context('Ações', () => {
     cy.get('[data-test="product-value"]').type(99.9);
     cy.get('.v-input--radio-group__input > :nth-child(2)').trigger('click');
     cy.get('[data-test="product-form-info"]').submit();
+    getStore().then((store) => {
+      expect(store.getters.currentProduct).to.not.be.null;
+    });
     // step 2 (pictures)
     cy.get('[data-test="uploader1-input"]').attachFile('carne_de_sol.jpeg');
     cy.wait(500);

@@ -16,11 +16,13 @@ context('Filtros', () => {
     let verification = 0;
     products.map((item, index) => {
       if (products[index + 1]) {
-        if (slug) {
-          verification += item.value < products[index + 1].value ? 1 : 0;
-        } else {
-          verification += item.value > products[index + 1].value ? 1 : 0;
-        }
+        verification += slug
+          ? item.value < products[index + 1].value
+            ? 1
+            : 0
+          : item.value > products[index + 1].value
+          ? 1
+          : 0;
       }
     });
     return verification === 0 ? true : false;
